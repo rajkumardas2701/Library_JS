@@ -10,7 +10,7 @@ function addBookToLibrary(book) {
 
 function render() {
   let result = '';
-  for (let i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     result += `<div class="container">
     <div class="mt-4 mb-5 p-5 h-25 border w-25 book-div" id="book-modal">
       <label for="title">
