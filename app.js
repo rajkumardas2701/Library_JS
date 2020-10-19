@@ -1,5 +1,29 @@
 const myLibrary = [];
 
+const bookForm = document.createElement('form');
+bookForm.innerHTML = `
+<label htmlFor="title">title</label>
+<input type="text" name="title" id="title"/>
+<label htmlFor="Author">Author</label>
+<input type="text" name="Author" id="author"/>
+<label htmlFor="Rating">Rating</label>
+<input type="number" min="1" max="5" name="rating" id="rating"/>
+<div class="is-read">
+  <label htmlFor="isRead">Have you read it?</label>
+  <input type="checkbox" name="isRead" id="isRead"/>
+  </div>
+<label htmlFor="pages">How many pages?</label>
+<input type="number" min="1" max="10000" name="pages" id="pages"/>
+<button type="submit">Add</button>
+`;
+
+function renderForm() {
+  document.body.appendChild(bookForm);
+}
+
+const formButton = document.getElementById('new-book').addEventListener('click', renderForm);
+document.body.insertAdjacentElement('beforeend', formButton);
+
 // function Book() {
 
 // }
@@ -18,74 +42,14 @@ function render() {
   document.getElementById('book-list').innerHTML = result;
 }
 
-// Create a break line element
-const br = document.createElement('br');
+function addBookToLibrary(book) {
 
-function addBookToLibrary() {
-  // alert(`I'm in add book to library`);
 
-  // Create a form synamically
-  const form = document.createElement('form');
-  form.setAttribute('method', 'post');
-  form.setAttribute('action', 'submit.php');
-
-  // Create an input element for Author
-  const Au = document.createElement('input');
-  Au.setAttribute('type', 'text');
-  Au.setAttribute('name', 'Author');
-  Au.setAttribute('placeholder', 'Author Name');
-
-  // Create an input element for Title
-  const title = document.createElement('input');
-  title.setAttribute('type', 'text');
-  title.setAttribute('name', 'title');
-  title.setAttribute('placeholder', 'Book Title');
-
-  // Create an input element for pages
-  const pages = document.createElement('input');
-  pages.setAttribute('type', 'text');
-  pages.setAttribute('name', 'pages');
-  pages.setAttribute('placeholder', 'Enter no. pages');
-
-  // Create an input element for read
-  const read = document.createElement('input');
-  read.setAttribute('type', 'radio');
-  read.setAttribute('name', 'read');
-  read.setAttribute('placeholder', 'Full Name');
-
-  const unread = document.createElement('input');
-  unread.setAttribute('type', 'radio');
-  unread.setAttribute('name', 'unread');
-
-  // create a submit button
-  const s = document.createElement('input');
-  s.setAttribute('type', 'submit');
-  s.setAttribute('value', 'Submit');
-
-  form.appendChild(Au);
-  form.appendChild(br.cloneNode());
-
-  form.appendChild(title);
-  form.appendChild(br.cloneNode());
-
-  form.appendChild(pages);
-  form.appendChild(br.cloneNode());
-
-  form.appendChild(read);
-  form.appendChild(br.cloneNode());
-  form.appendChild(unread);
-  form.appendChild(br.cloneNode());
-
-  // Append the submit button to the form
-  form.appendChild(s);
-  document.getElementsByTagName('body')[0].appendChild(form);
-
-  // myLibrary.push();
-  // render();
+  myLibrary.push(book);
+  render();
 }
 
 // addBookToLibrary('test book');
 // addBookToLibrary('test1 book');
 // addBookToLibrary('test2 book');
 
-document.getElementById('new-book').addEventListener('click', addBookToLibrary);
