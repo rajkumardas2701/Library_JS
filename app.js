@@ -67,6 +67,16 @@ function addBookToLibrary(book) {
   render();
 }
 
+function clearInput() {
+  document.getElementById('title').value = ' ';
+  document.getElementById('author').value = ' ';
+  document.getElementById('rating').value = ' ';
+  document.getElementById('isRead').classList.toggle();
+  document.getElementById('pages').value = ' ';
+
+  // document.getElementById('book-modal').classList.toggle('book-div');
+}
+
 function addNewBook(e) {
   // alert('Inside Add New Book function');
   e.preventDefault();
@@ -79,6 +89,7 @@ function addNewBook(e) {
   );
   // console.log(book);
   addBookToLibrary(book);
+  clearInput();
 }
 
 // bookForm.addEventListener('submit', addNewBook);
