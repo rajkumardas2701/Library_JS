@@ -71,10 +71,8 @@ function clearInput() {
   document.getElementById('title').value = ' ';
   document.getElementById('author').value = ' ';
   document.getElementById('rating').value = ' ';
-  document.getElementById('isRead').classList.toggle();
+  document.getElementById('isRead').checked = false;
   document.getElementById('pages').value = ' ';
-
-  // document.getElementById('book-modal').classList.toggle('book-div');
 }
 
 function addNewBook(e) {
