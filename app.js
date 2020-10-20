@@ -21,6 +21,10 @@ function renderForm() {
   document.body.appendChild(bookForm);
 }
 
+function removeForm() {
+  document.body.removeChild(bookForm);
+}
+
 const formButton = document.getElementById('new-book');
 formButton.addEventListener('click', renderForm);
 // document.body.insertAdjacentElement('beforeend', formButton);
@@ -88,6 +92,7 @@ function addNewBook(e) {
   // console.log(book);
   addBookToLibrary(book);
   clearInput();
+  removeForm();
 }
 
 // bookForm.addEventListener('submit', addNewBook);
