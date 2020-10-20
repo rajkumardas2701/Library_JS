@@ -19,3 +19,11 @@ html {
 .card-deck .card .card-body .card-header {
   width: 50px;
 }
+
+form {
+  text-align: center;
+}
+
+#new-book {
+  text-align: center;
+}
