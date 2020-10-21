@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-alert */
+
 const myLibrary = [];
 
 const bookForm = document.createElement('form');
@@ -63,6 +66,7 @@ function render() {
   }
   document.getElementById('book-list').innerHTML = result;
 }
+
 function readStatus(read, idx) {
   if (read === true) {
     myLibrary[idx].isRead = false;
