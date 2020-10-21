@@ -16,7 +16,7 @@ bookForm.innerHTML = `
 <label htmlFor="Rating">Rating: </label>
 <input type="number" min="1" max="5" name="rating" id="rating"/><br>
 <div class="is-read">
-  <label htmlFor="isRead">Have you read it?</label>
+  <label htmlFor="isRead">Read this book?</label>
   <input type="checkbox" name="isRead" id="isRead"/>
   </div><br>
 <label htmlFor="pages">How many pages?</label>
@@ -49,22 +49,26 @@ class Book {
 function render() {
   let result = '';
   for (let i = 0; i < myLibrary.length; i += 1) {
-    result += `<div class="container">
-    <div class="mt-4 mb-5 p-5 h-25 border w-25 book-div" id="book-modal">
+    result += `<div class="card-deck">
+    <div class="card">
       <label for="title">
-        Title: ${myLibrary[i].title}
-      </label>
-      <label for="author">
-        Author: ${myLibrary[i].author}
-      </label>
-      <label for="rating">
-        Rating: ${myLibrary[i].rating === '' ? 'None' : myLibrary[i].rating}
-      </label>
+          Book Title: <b>${myLibrary[i].title}</b>
+        </label>
+      <div class="card-body">
+        <label for="author">
+          <b>Author:</b> ${myLibrary[i].author}
+        </label><br>
+        <label for="rating">
+          <b>Rating:</b> ${myLibrary[i].rating === '' ? 'None' : myLibrary[i].rating}
+        </label><br>
       <label for="pages">
-        Pages: ${myLibrary[i].pages}
-      </label>
-      <button class="btn btn-warning" onclick="readStatus(${myLibrary[i].isRead}, ${i})">${myLibrary[i].isRead ? 'Done Reading' : 'Didn\'t Read yet'}</button>
-      <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
+          <b>Pages:</b> ${myLibrary[i].pages}
+        </label><br>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-warning" onclick="readStatus(${myLibrary[i].isRead}, ${i})">${myLibrary[i].isRead ? 'Done Reading' : 'Didn\'t Read'}</button>
+        <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
+      </div>
     </div>
   </div>`;
   }
@@ -143,3 +147,5 @@ bookForm.addEventListener('submit', addNewBook);
 // addBookToLibrary('test1 book');
 // addBookToLibrary('test2 book');
 render();
+document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80')";
+document.getElementById('body').style.backgroundSize = 'cover';
