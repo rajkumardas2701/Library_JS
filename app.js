@@ -1,7 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 
-const myLibrary = [];
+const myLibrary = JSON.parse(localStorage.getItem('book-library-data')) || [];
+
+const saveData = (arr) => {
+  localStorage.setItem('book-library-data', JSON.stringify(arr));
+};
 
 const bookForm = document.createElement('form');
 bookForm.innerHTML = `
@@ -70,22 +74,25 @@ function render() {
 function readStatus(read, idx) {
   if (read === true) {
     myLibrary[idx].isRead = false;
+    localStorage['book-library-data'] = JSON.stringify(myLibrary);
     render();
     return false;
   }
   myLibrary[idx].isRead = true;
+  localStorage['book-library-data'] = JSON.stringify(myLibrary);
   render();
   return true;
 }
 
 function deleteBook(idx) {
   myLibrary.splice(idx, 1);
+  localStorage['book-library-data'] = JSON.stringify(myLibrary);
   render();
 }
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  // console.log(myLibrary);
+  saveData(myLibrary);
   render();
 }
 
@@ -135,4 +142,4 @@ bookForm.addEventListener('submit', addNewBook);
 // addBookToLibrary('test book');
 // addBookToLibrary('test1 book');
 // addBookToLibrary('test2 book');
-// render();
+render();
