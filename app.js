@@ -59,10 +59,16 @@ function render() {
       <label for="title">
         Pages: ${myLibrary[i].pages}
       </label>
+      <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
     </div>
   </div>`;
   }
   document.getElementById('book-list').innerHTML = result;
+}
+
+function deleteBook(idx) {
+  myLibrary.splice(idx, 1);
+  render();
 }
 
 function addBookToLibrary(book) {
