@@ -30,7 +30,7 @@ formButton.addEventListener('click', renderForm);
 // document.body.insertAdjacentElement('beforeend', formButton);
 
 class Book {
-  constructor(title, author, rating, isRead, pages) {
+  constructor(title, author, rating = 1, isRead, pages) {
     this.title = title;
     this.author = author;
     this.rating = rating;
@@ -51,7 +51,7 @@ function render() {
         Author: ${myLibrary[i].author}
       </label>
       <label for="rating">
-        Rating: ${myLibrary[i].rating}
+        Rating: ${myLibrary[i].rating === '' ? 'None' : myLibrary[i].rating}
       </label>
       <label for="pages">
         Pages: ${myLibrary[i].pages}
@@ -93,6 +93,21 @@ function clearInput() {
   document.getElementById('pages').value = ' ';
 }
 
+function validateInput(bookElements) {
+  let valid = true;
+  bookElements.forEach(value => {
+    if (value === '') {
+      valid = false;
+    }
+  });
+
+  if (valid === false) {
+    alert('Title, Author and Pages can\'t be blank');
+  }
+
+  return valid;
+}
+
 function addNewBook(e) {
   // alert('Inside Add New Book function');
   e.preventDefault();
@@ -104,12 +119,13 @@ function addNewBook(e) {
     e.target.pages.value,
   );
   // console.log(book);
-  addBookToLibrary(book);
+
+  if (validateInput([e.target.title.value, e.target.author.value, e.target.pages.value])) {
+    addBookToLibrary(book);
+  }
   clearInput();
   removeForm();
 }
-
-// bookForm.addEventListener('submit', addNewBook);
 
 bookForm.addEventListener('submit', addNewBook);
 // addBookToLibrary('test book');
