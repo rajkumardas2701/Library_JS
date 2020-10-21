@@ -47,23 +47,31 @@ function render() {
       <label for="title">
         Title: ${myLibrary[i].title}
       </label>
-      <label for="title">
+      <label for="author">
         Author: ${myLibrary[i].author}
       </label>
-      <label for="title">
+      <label for="rating">
         Rating: ${myLibrary[i].rating}
       </label>
-      <label for="title">
-        Read: ${myLibrary[i].isRead}
-      </label>
-      <label for="title">
+      <label for="pages">
         Pages: ${myLibrary[i].pages}
       </label>
+      <button class="btn btn-warning" onclick="readStatus(${myLibrary[i].isRead}, ${i})">${myLibrary[i].isRead ? 'Done Reading' : 'Didn\'t Read yet'}</button>
       <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
     </div>
   </div>`;
   }
   document.getElementById('book-list').innerHTML = result;
+}
+function readStatus(read, idx) {
+  if (read === true) {
+    myLibrary[idx].isRead = false;
+    render();
+    return false;
+  }
+  myLibrary[idx].isRead = true;
+  render();
+  return true;
 }
 
 function deleteBook(idx) {
@@ -92,7 +100,7 @@ function addNewBook(e) {
     e.target.title.value,
     e.target.author.value,
     e.target.rating.value,
-    e.target.isRead.value,
+    e.target.isRead.checked,
     e.target.pages.value,
   );
   // console.log(book);
