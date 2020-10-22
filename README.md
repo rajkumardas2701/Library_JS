@@ -1,63 +1,49 @@
-# Project Name
+# Library
 
-> One paragraph statement about the project.
+> This projects depicts how to use Objects and Contructors using Javascript.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./Screenshot.png)
 
-Additional description about the project and its features.
+Using this project, you can create your own library where you can specify Title, Author, Rating, Number of pages and if you have already read that book.
+All the book created will be stored in local storage so you don't lose data on page reload. 
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Javascript ES6
+- HTML5 and CSS3
+- Bootstrap
+- VS Code
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+[Live Demo Link](https://rawcdn.githack.com/rajkumardas2701/Library_JS/e4e2fc2d026910c2a9459a835e86276539c1d9dc/index.html)
 
 ### Prerequisites
 
+- Any kind of browser supporting CSS3 and HTML5
+
 ### Setup
+
+- Fork the repo to your remote repository.
+- Clone or download the repository to your local machine.
 
 ### Install
 
-### Usage
+- No istallation required.
 
-### Run tests
+## Author
 
-### Deployment
+👤 **Rajkumar Das**
 
-
-
-## Authors
-
-👤 **Author1**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@rajkumardas2701](https://github.com/rajkumardas2701)
+- Twitter: [@Rajkuma58621299](https://twitter.com/Rajkuma58621299)
+- Linkedin: [Rajkumar Das](https://www.linkedin.com/in/rajkumar-das-41308961/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/rajkumardas2701/Library_JS/issues).
 
 ## Show your support
 
@@ -65,9 +51,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Thanks to Team 104 the fornax at Microverse for sharing learning contents
 
 ## 📝 License
 
